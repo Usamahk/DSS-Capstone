@@ -5,8 +5,10 @@ date: "November 20, 2015"
 output: pdf_document
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, cache=TRUE}
 user.test.md <- readRDS("user.test.RDS")
+city.center.md <- readRDS("city.center.RDS")
+rownames(city.center.md) <- c('Edinburgh, UK', 'Karlsruhe, Germany', 'Montreal, Canada', 'Waterloo, Canada', 'Pittsburgh, PA', 'Charlotte, NC', 'Urbana-Champaign, IL', 'Phoenix, AZ', 'Las Vegas, NV', 'Madison, WI')
 ```
 
 # Introduction
@@ -27,7 +29,7 @@ User --> *user.data*
 
 After some exploratory analysis, performed in part for the Capstone quiz and for determining interesting observations in the data, the following question was isolated with the rationale below:
 
-*Can Yelp be used to create a social network by recommending friends to you based on location, check-in, ratings and other factors?* 
+***Can Yelp be used to create a social network by recommending friends to you based on location, check-in, ratings and other factors?*** 
 
 People are inclined to trust friends for recommendations and like to meet new people to go and eat with. This can be done by following those who you believe have good reviews but if there were a passive way to find recommendations like on Instagram's main feed users may find it interesting. The feedback that was recieved was positive but with one reviewer of five stating that they might not have a need for it. The question was undertaken and was found to be possible with certain limitations.
 
@@ -56,7 +58,17 @@ city.clusters <-kmeans(coordinates, city.center) # Perform K-means
 
 coordinates.clusters <- cbind(city.clusters$cluster, coordinates) # Get indexed cluster 
                                                                   # info
+```
 
+Exploring the data, the city centers were found to be:
+
+```{r, echo=FALSE}
+city.center.md
+```
+
+Now all that was left to do was bind the clusters to the business data:
+
+```{r, eval=FALSE}
 business.data <- cbind(coordinates.clusters$City,business.data) # Bind with business data
 ```
 
@@ -115,43 +127,36 @@ The second aspect of the methods was to allow further subsetting to the data bas
 
 # Results
 
-The purpose of this Capstone was to build a model, statistical or predictive, yet since the final course dealt with Developing Data Products, a lot of time was taken to build a tangible, dynamic environment for exploring the data in addition to a model. As a result, the result of the analysis came in the form of an app that can be accessed at ------------ and played around with.
+The purpose of this Capstone was to build a model, statistical or predictive, yet since the final course dealt with Developing Data Products, a lot of time was taken to build a tangible, dynamic environment for exploring the data in addition to a model. As a result, the result of the analysis came in the form of an app that can be loaded here:
+
+```{r, eval=FALSE}
+runGitHub( "DSS-Capstone", "Usamahk") 
+```
 
 It was useful and showed a possible solution to the initial question laid out, however, with some caveats. First, to understand how the app works, the screenshot below shows an example of the usage and the zone of interest.The final data frame that was cleaned and used as input for all information on the map is in the following format: 
 
-*Note - this is a test set used for display*:
+*Note - this is a test set used for display*:  
+  
 
 ```{r, echo=FALSE}
 head(user.test.md[1])
 head(user.test.md[-1])
 ```
 
-The 
+Below is an example of a screenshot of the app. A "User Explorer" overlay gives the option of choosing a user and based on that user, centering a circle of a variable radius. Once the zone is yet, the user can explore the region and other users inside by clicking on the marker which initiates a popup with relevent information pertaining to the user.
 
 ![Example of Shiny App](Shiny.png)
 
 # Discussion
 
-In the end, using Shiny and Leaflet proved to be a useful resource in terms of getting an example of the 
+In the end, using Shiny and Leaflet proved to be a useful resource in terms of getting an example of the potential of the data use. The question was most certainly answerable but there were limitations due to both the methods presented and assumptions that were made.
 
-Building a script that dropped users based on mutual reviews did not turn out as well. Because of the limitations of the software, and indeed personal knowledge of scripting, the script run was very slow and prone to frequent crashing and freezing. This was due to trying to  Hence it was determined that a number of factors could make the app better: 
+Montreal was chosen since it was the environment where I had the most knowledge of so outliers and other issues could be spotted by visual inspection. The assumption to take the location of a user as their center of mass was not necessarily correct. That was apparent by looking at the map and realising that some users were located in zones where they could not possibly live (a forest and lake to name a few) and were also present in areas that are not necessarily residential. It becomes a good inference for users who have many reviews as it points to at about the middle of where they are most likely to be, but confining the search within bounds of natural and realistic locations to live would be better. This would require a slightly more intimate knowledge of the region and data, hence it may be infeasible.
 
-- Another scripting language could speed up the process  
+The second issue was that building a script that dropped users based on mutual reviews did not turn out as well. Because of the limitations of the software, and indeed personal knowledge of scripting, the code ran very slow and was prone to frequent crashing and freezing. This was due to trying to create a table for a single user and do this with every user whilst counting and storing shared mutual information. It became a problem when dealing with multiple users with >200 reviews. Hence it was determined that a number of factors could make the app better: 
+
+- Another scripting language could speed up the process
 - Altering the method
 - Limiting the scope 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r}
-summary(cars)
-```
-
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+These were options that were discussed with other members of the course and online. With certain changes that were not feasible during the time frame of the analysis, a potential for a more accurate solution exists.
