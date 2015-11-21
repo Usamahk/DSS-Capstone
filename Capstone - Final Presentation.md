@@ -31,9 +31,16 @@ The idea was plot all data for the centroids of user activity, and from there gi
 Results
 ========================================================
 
-![Example of Shiny App](/figures/Shiny.png)
+The app can be found by running 
+
+```r
+runGitHub( "DSS-Capstone", "Usamahk") 
+```
+
+The app built was the result and was found that it could be used to determine friends. A "User Explorer" overlay gives the options of choosing a user and centers a circle of a variable radius. Once the zone is yet, the user can explore the region and other users inside by clicking on the marker which initiates a popup with relevent information pertaining to the user.
 
 Discussion
 ========================================================
 
-![plot of chunk unnamed-chunk-1](Capstone - Final Presentation-figure/unnamed-chunk-1-1.png) 
+In the end, using Shiny and Leaflet proved to be a useful resource in terms of getting an example of the potential of the data use. The question was most certainly answerable but there were limitations due to both the methods presented and assumptions that were made.
+
