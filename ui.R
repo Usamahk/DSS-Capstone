@@ -1,6 +1,8 @@
 library(shiny)
 library(leaflet)
 
+user.test <- readRDS("user.test.rds")
+
 # Define UI for application that draws a histogram
 shinyUI(navbarPage("Yelp!", id = "nav",
                    

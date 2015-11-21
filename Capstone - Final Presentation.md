@@ -1,0 +1,39 @@
+Capstone - Presentation
+========================================================
+author: Usamah Khan
+date: November 21, 2015
+font-family: 'Lato'
+width: 1024
+height: 768
+
+DSS Capstone - Connecting Users to Build a Social Network In Yelp!
+
+Introduction
+========================================================
+
+People are inclined to trust friends for recommendations and like to meet new people to go and eat with. Yelp allows this by following those who you believe have good reviews. 
+
+If there were a passive way to find recommendations like on Instagram's main feed or Tinder's Geo-feed, users may find it helpful. Hence, the question of interest for this analysis is:
+
+***Can Yelp be used to create a social network by recommending friends to you based on location, check-in, ratings and other factors?*** 
+
+Methods and Data
+========================================================
+
+I - Manipulating and Extracting the Data
+
+Users were isolated based on city. Montreal was chosen for analysis. K-means clustering was employed on business ids and then linked to reviews and then to users ensuring only Montreal data was taken into account
+
+II - Building a Data product
+
+The idea was plot all data for the centroids of user activity, and from there give users an option to find other users within a specific radius. This was done in shiny.
+
+Results
+========================================================
+
+![Example of Shiny App](/figures/Shiny.png)
+
+Discussion
+========================================================
+
+![plot of chunk unnamed-chunk-1](Capstone - Final Presentation-figure/unnamed-chunk-1-1.png) 

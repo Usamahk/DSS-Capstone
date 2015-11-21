@@ -5,7 +5,8 @@ library(scales)
 library(lattice)
 library(dplyr)
 
-# Define server logic required to draw a histogram
+user.test <- readRDS("user.test.rds")
+
 shinyServer(function(input, output, session) {
   
   output$map <- renderLeaflet({
