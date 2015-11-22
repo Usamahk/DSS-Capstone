@@ -33,6 +33,10 @@ After some exploratory analysis, performed in part for the Capstone quiz and for
 
 People are inclined to trust friends for recommendations and like to meet new people to go and eat with. This can be done by following those who you believe have good reviews but if there were a passive way to find recommendations like on Instagram's main feed users may find it interesting. The feedback that was recieved was positive but with one reviewer of five stating that they might not have a need for it. The question was undertaken and was found to be possible with certain limitations.
 
+All data and code for this project can be found over at:
+
+**https://github.com/Usamahk/DSS-Capstone**
+
 # Methods and Data
 
 ### Part I - Manipulating and Extracting the Data
@@ -129,11 +133,9 @@ The second aspect of the methods was to allow further subsetting to the data bas
 
 The purpose of this Capstone was to build a model, statistical or predictive, yet since the final course dealt with Developing Data Products, a lot of time was taken to build a tangible, dynamic environment for exploring the data in addition to a model. As a result, the result of the analysis came in the form of an app that can be loaded here:
 
-```{r, eval=FALSE}
-runGitHub( "DSS-Capstone", "Usamahk") 
-```
+**https://usamah-khan.shinyapps.io/DSS-Cap**
 
-It was useful and showed a possible solution to the initial question laid out, however, with some caveats. First, to understand how the app works, the screenshot below shows an example of the usage and the zone of interest.The final data frame that was cleaned and used as input for all information on the map is in the following format: 
+It was useful and showed a possible solution to the initial question laid out, however, with some caveats. Before moving on, note that the app is a test and only includes information on 100 users. First, to understand how the app works, the screenshot below shows an example of the usage and the zone of interest.The final data frame that was cleaned and used as input for all information on the map is in the following format: 
 
 *Note - this is a test set used for display*:  
   

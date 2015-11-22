@@ -512,7 +512,7 @@ body {
 
 
 .reveal {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Risque', sans-serif;
 }
   
 .reveal h1,
@@ -521,7 +521,7 @@ body {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  font-family: 'Lato', Impact, sans-serif;
+  font-family: 'Risque', Impact, sans-serif;
 }
 
 
@@ -748,7 +748,7 @@ hljs.initHighlightingOnLoad();
   <div class="reveal">
   <div class="slides">
 
-<section data-state="section" data-transition="linear" data-transition-speed="default">
+<section data-state="section" data-transition="default" data-transition-speed="default">
 <h1>Capstone - Presentation</h1><p>Usamah Khan<br/>November 21, 2015</p>
 
 <div class="slideContent" >
@@ -757,49 +757,56 @@ hljs.initHighlightingOnLoad();
 </div>
 
 </section>
-<section data-transition="linear" data-transition-speed="default">
+<section data-transition="default" data-transition-speed="default">
 <h3>Introduction</h3>
 <div class="slideContent" >
-<p>People are inclined to trust friends for recommendations and like to meet new people to go and eat with. Yelp allows this by following those who you believe have good reviews. </p>
-
-<p>If there were a passive way to find recommendations like on Instagram&#39;s main feed or Tinder&#39;s Geo-feed, users may find it helpful. Hence, the question of interest for this analysis is:</p>
+<p>People are inclined to trust friends for recommendations and like to meet new people to go and eat with. Yelp allows this by following those who you believe have good reviews. So a question of interest was formulated: </p>
 
 <p><strong><em>Can Yelp be used to create a social network by recommending friends to you based on location, check-in, ratings and other factors?</em></strong> </p>
+
+<p>If there were a passive way to find recommendations like on Instagram&#39;s main feed or Tinder&#39;s Geo-feed, users may find it helpful. Hence, the question of interest for this analysis.</p>
 
 </div>
 
 </section>
-<section data-transition="linear" data-transition-speed="default">
+<section data-transition="default" data-transition-speed="default">
 <h3>Methods and Data</h3>
 <div class="slideContent" >
 <p>I - Manipulating and Extracting the Data</p>
 
-<p>Users were isolated based on city. Montreal was chosen for analysis. K-means clustering was employed on business ids and then linked to reviews and then to users ensuring only Montreal data was taken into account</p>
+<ul>
+<li>Users were isolated based on city. Montreal was chosen for analysis. K-means clustering was employed on business ids and then linked to reviews and then to users ensuring only Montreal data was taken into account</li>
+</ul>
 
 <p>II - Building a Data product</p>
 
-<p>The idea was plot all data for the centroids of user activity, and from there give users an option to find other users within a specific radius. This was done in shiny.</p>
+<ul>
+<li>The idea was plot all data for the centroids of user activity, and from there give users an option to find other users within a specific radius. This was done in shiny.</li>
+</ul>
 
 </div>
 
 </section>
-<section data-transition="linear" data-transition-speed="default">
+<section data-transition="default" data-transition-speed="default">
 <h3>Results</h3>
 <div class="slideContent" >
-<p>The app can be found by running </p>
+<p>The app can be found at</p>
 
-<pre><code class="r">runGitHub( &quot;DSS-Capstone&quot;, &quot;Usamahk&quot;) 
+<p><strong><a href="https://usamah-khan.shinyapps.io/DSS-Cap">https://usamah-khan.shinyapps.io/DSS-Cap</a></strong></p>
+
+<p>A &ldquo;User Explorer&rdquo; overlay gives the options of choosing a user and centers a circle of a variable radius. Once the zone is yet, the user can explore the region and check popups for user info. The data input is of the form:</p>
+
+<pre><code>    name longitude latitude
+1 Roland -73.56573 45.50711
 </code></pre>
-
-<p>The app built was the result and was found that it could be used to determine friends. A &ldquo;User Explorer&rdquo; overlay gives the options of choosing a user and centers a circle of a variable radius. Once the zone is yet, the user can explore the region and other users inside by clicking on the marker which initiates a popup with relevent information pertaining to the user.</p>
 
 </div>
 
 </section>
-<section data-transition="linear" data-transition-speed="default">
+<section data-transition="default" data-transition-speed="default">
 <h3>Discussion</h3>
 <div class="slideContent" >
-<p>In the end, using Shiny and Leaflet proved to be a useful resource in terms of getting an example of the potential of the data use. The question was most certainly answerable but there were limitations due to both the methods presented and assumptions that were made.</p>
+<p>The question was most certainly answerable but there were limitations due to both the methods presented and assumptions that were made. Center of masses aren&#39;t necesarily correct due to outliers and geography and sectioning of the data would hopefully make it more accurate.</p>
 
 </div>
 
@@ -855,7 +862,7 @@ function commandsForSlide(indexh) {
       rollingLinks: false,
       
       theme: 'simple', 
-      transition: 'linear',
+      transition: 'default',
       transitionSpeed: 'default',
       rtl: false,
       width: 1024,
